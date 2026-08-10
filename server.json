@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.json",
+  "name": "markets.tally/mcp",
+  "description": "The risk officer for AI-assisted trading: pre-registered theses, immutable exit rules, a 24-hour cooling-off, an override ledger, and public receipts — enforced inside Claude, ChatGPT, and any MCP client. Read-only by architecture; never executes trades.",
+  "status": "active",
+  "version": "1.0.0",
+  "websiteUrl": "https://tally.markets",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tally.markets/api/mcp"
+    }
+  ]
+}
