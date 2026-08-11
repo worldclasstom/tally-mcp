@@ -90,6 +90,6 @@ constrain — it runs alongside all of them:
 
 ---
 
-*This repository contains documentation and the public server manifest
-only — the hosted server lives at tally.markets. No secrets, keys, or
-server source belong here, ever.*
+*Tally is a hosted service. This repository is its documentation and
+public manifest, not its source — there is nothing here to install or
+run. Point your AI at the connector URL above; OAuth does the rest.*
