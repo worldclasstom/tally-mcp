@@ -54,6 +54,17 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 Reads are safe to always-allow; writes are guarded by the protocol
 itself (cooling-off, criteria minimums, override justifications).
 
+## Prompts
+
+Clients with a prompt picker get the three jobs Tally exists for, ready
+to run:
+
+| Prompt | What it does |
+|---|---|
+| `morning-checkup` | The daily run — what needs action, fresh readings against every active thesis's criteria, anything that fired. This is the one to put on a schedule. |
+| `pre-register-trade` | Turns an idea into a pre-registered thesis, interviewing you until it is falsifiable |
+| `close-out` | Walks a thesis to its exit — what the written rules demand, and the justification the override ledger requires if you are closing early |
+
 ## Proof
 
 A real receipt — pre-registered thesis, venue-verified entry and exit,
