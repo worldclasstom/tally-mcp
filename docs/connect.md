@@ -83,6 +83,6 @@ support@tally.markets; detail in https://tally.markets/privacy.
 from the AI client's connector settings, which invalidates the token
 immediately. Revoking does not delete the journal.
 
-**Operator.** Tally is operated by Prosperity Labs, LLC.
+**Operator.** Tally is operated by [Prosperity Labs, LLC](https://prosperitylabs.co/).
 support@tally.markets · https://tally.markets/terms ·
 https://tally.markets/privacy
