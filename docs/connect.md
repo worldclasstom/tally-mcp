@@ -34,10 +34,11 @@ journal.
 
 ## 4 · Install the skill (optional, recommended)
 
-https://tally.markets/tally-skill.md → upload in Claude → Settings →
-Skills. Makes the AI proactive: float a trade idea and it offers to
-pre-register; mention "taking profits" and it checks your written rules
-first.
+https://tally.markets/tally-skill.md — in Claude: upload under
+Settings → Skills. In ChatGPT: add it to a Project's files, so it loads
+in every chat inside that project. Makes the AI proactive: float a
+trade idea and it offers to pre-register; mention "taking profits" and
+it checks your written rules first.
 
 ## 5 · Schedule the morning checkup
 
