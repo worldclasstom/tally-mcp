@@ -9,9 +9,12 @@ URL for every client: `https://tally.markets/api/mcp`
 
 - **Claude**: Settings → Connectors → Add custom connector → name it
   Tally, paste the URL. Leave the OAuth fields empty.
-- **ChatGPT**: Plugins → New plugin → name it Tally, paste the URL as
-  the Server URL, Authentication: OAuth. Requires developer mode.
-  Optional icon: https://tally.markets/logo-256.png
+- **ChatGPT**: Tally Markets is a listed app — one click from the
+  directory, no developer mode:
+  https://chatgpt.com/plugins/plugin_asdk_app_6a7b8e021b148191aa85f69711529637
+  (Manual fallback if your workspace hides the directory: developer
+  mode → Plugins → New plugin → paste the URL as the Server URL,
+  Authentication: OAuth.)
 - **Claude Code**:
   `claude mcp add --transport http tally https://tally.markets/api/mcp`
   then `/mcp` to sign in.
