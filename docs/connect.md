@@ -21,9 +21,10 @@ URL for every client: `https://tally.markets/api/mcp`
 
 ## 2 · Sign in and approve
 
-Your AI opens Tally's sign-in (free account, no card:
-https://tally.markets/sign-up). Reads are safe to always-allow; keep
-writes on approval if you want a human click before the record changes.
+Your AI opens Tally's sign-in (https://tally.markets/sign-up; the
+connector needs a subscribed account, $4.99 a month). Reads are safe to
+always-allow; keep writes on approval if you want a human click before
+the record changes.
 
 ## 3 · Say hello
 
