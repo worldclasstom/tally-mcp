@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "The risk officer for AI trading: an independent, read-only watcher for the agent that trades your account. Agents report what they researched; the journal holds enforced exit rules and public receipts.",
+  "description": "The risk officer for AI trading: an independent, read-only watcher for your trading agent.",
   "status": "active",
   "version": "1.1.0",
   "websiteUrl": "https://tally.markets",
