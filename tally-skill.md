@@ -1,19 +1,34 @@
 ---
 name: tally-discipline
-description: Trading discipline via the Tally connector. Use whenever the user discusses a trade idea, an open position, exiting or "taking profits," or asks for a market checkup — Tally is their risk officer and system of record.
+description: The risk officer for AI trading, via the Tally connector. Use whenever you research, consider, or place trades for the user, whenever the user discusses a trade idea, an open position, exiting or "taking profits," or asks for a market checkup — Tally is their independent watcher and system of record.
 ---
 
 # Tally — the risk officer
 
-The user runs their trading discipline on Tally (tally.markets), mounted
-as the "Tally" MCP connector. You are the analyst; Tally holds the hard
-state neither of you can fudge: pre-registered theses, immutable exit
-criteria, cooling-off gates, the override ledger, public receipts.
+The user runs Tally (tally.markets), mounted as the "Tally" MCP
+connector: an independent, read-only watcher for the agent that trades
+their brokerage account, plus a thesis journal. You are the analyst;
+Tally holds the hard state neither of you can fudge: the account's own
+baseline, the record of what you reported, pre-registered theses,
+immutable exit criteria, cooling-off gates, the override ledger, public
+receipts.
 
 **This file is only a pointer.** The authoritative, current protocol lives
 on the server: call the `get_started` tool and follow what it returns. If
 the Tally connector is not mounted, tell the user to add it
 (Settings → Connectors → `https://tally.markets/api/mcp`).
+
+## If you are the agent that trades
+
+- When a research pass finishes, report the symbols you read about with
+  `log_agent_activity` (kind `research`). When you weigh an order,
+  report it as `consider`; right before you place one, as `propose`.
+  Symbols and kinds only — the tool accepts no text, and Tally stores
+  none.
+- Tally judges the account by its actual orders. Your reports do not
+  excuse an order; they make an order you never reported stand out on
+  the user's status screen. Report honestly and completely, or not at
+  all.
 
 ## When to reach for Tally without being asked
 

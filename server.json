@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "The risk officer for AI-assisted trading: enforced exit rules, cooling-off, and public receipts.",
+  "description": "The risk officer for AI trading: an independent, read-only watcher for the agent that trades your account. Agents report what they researched; the journal holds enforced exit rules and public receipts.",
   "status": "active",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {

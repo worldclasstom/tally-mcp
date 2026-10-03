@@ -64,25 +64,29 @@ accounts.tally.markets. Scopes requested: `openid`, `profile`, `email`,
 and nothing else.
 
 **What it can reach.** Every tool is scoped to the authenticated user's
-own journal. The server reaches no third-party service on the user's
-behalf, browses nothing, and cannot read another account's data. It
-never queries the AI client's memory, chat history, or files.
+own record: their journal and, if their AI reports it, the symbols it
+researched or considered. The server reaches no third-party service on
+the user's behalf, browses nothing, cannot read another account's data,
+and cannot reach the user's brokerage. It never queries the AI client's
+memory, chat history, or files.
 
 **It cannot trade.** Read-only toward markets by architecture. No tool
 places, modifies, or cancels an order on any venue, and none moves money
 or crypto. A linked brokerage goes through SnapTrade on a read-only
 connection; broker credentials never reach Tally.
 
-**Tools.** Ten, split five read and five write. Reads carry
+**Tools.** Eleven, split five read and six write. Reads carry
 `readOnlyHint` and run without per-call confirmation; the three one-way
 operations — arming a thesis, firing a criterion, closing a thesis — are
-marked destructive so the client always asks first.
+marked destructive so the client always asks first. The agent-activity
+report accepts symbols and kinds and no text.
 
 **Data and retention.** What the user writes: theses, criteria, readings,
-positions, notes. Any venue session key is encrypted at rest
-(AES-256-GCM) before it touches the database. Receipts are public only
-for theses the owner has closed. Export or deletion on request at
-support@tally.markets; detail in https://tally.markets/privacy.
+positions, notes. What their AI reports: a symbol, a kind, a time, kept
+90 days. Any venue session key is encrypted at rest (AES-256-GCM) before
+it touches the database. Receipts are public only for theses the owner
+has closed. Export or deletion on request at support@tally.markets;
+detail in https://tally.markets/privacy.
 
 **Revoking access.** The grant is per user and can be revoked at any time
 from the AI client's connector settings, which invalidates the token

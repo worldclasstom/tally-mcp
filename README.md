@@ -1,19 +1,31 @@
-# Tally — the risk officer for AI-assisted trading
+# Tally — the risk officer for AI trading
 
 > Every trading connector makes your AI more capable. **Tally makes it
 > accountable.**
 
-Tally ([tally.markets](https://tally.markets)) is a trading-discipline
-layer that mounts inside Claude, ChatGPT, Claude Code, and any
-MCP-capable agent. Your AI is the analyst — it researches, monitors, and
-gathers evidence. Tally holds the record neither you nor the model can
-rewrite: pre-registered theses, exit rules that freeze before capital
-moves, a 24-hour cooling-off, an override ledger for rule-breaking
-exits, and a public receipt for every closed trade.
+Tally ([tally.markets](https://tally.markets)) is an independent,
+read-only watcher for the AI agent that trades a brokerage account. It
+reads the account through SnapTrade, learns how the agent normally
+trades, and emails the owner on the day the agent breaks its own
+pattern. Most days it sends nothing.
+
+This connector is how an agent running inside Claude, ChatGPT, Claude
+Code, or any MCP-capable client takes part in that. Two things it does:
+
+- **The agent reports what it researched, considered, and proposed**
+  (`log_agent_activity`): symbols and kinds only, no text accepted or
+  stored. Tally judges the account by its actual orders; the reports
+  sharpen an alert (an order in a symbol the agent never mentioned) and
+  never replace one.
+- **The thesis journal**, for trades the user makes themselves: a
+  pre-registered thesis per trade, exit rules that freeze before capital
+  moves, a 24-hour cooling-off, an override ledger for rule-breaking
+  exits, and a public receipt for every closed trade.
 
 **Tally never executes trades.** Every broker and venue connection is
 read-only at the API level — no order placement, no custody, by
-architecture and by policy.
+architecture and by policy. Nothing in this connector can reach a
+brokerage.
 
 ## Connect
 
@@ -32,7 +44,9 @@ https://tally.markets/api/mcp
 | **Any MCP agent** | Point it at the URL above; OAuth discovery does the rest. |
 
 Then say: **"Get started with Tally, then run my checkup."** The server
-teaches your AI the whole protocol on first contact.
+teaches your AI the whole protocol on first contact. The connector
+needs a subscribed Tally account (Sentinel, $4.99 a month or $49 a
+year); every tool but `get_started` answers only for one.
 
 Full walkthrough (skill, scheduled morning checkup, broker linking):
 [tally.markets/connect](https://tally.markets/connect)
@@ -41,7 +55,8 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 
 | Tool | What it does |
 |---|---|
-| `get_started` | Returns the discipline protocol — the AI teaches itself |
+| `get_started` | Returns the protocol — the AI teaches itself |
+| `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols and kinds only, no text |
 | `get_checkup` | Morning briefing: active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |
 | `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria (starts the 24h cooling-off) |
@@ -74,17 +89,20 @@ process."*](https://tally.markets/receipt/b3bb0a14-3467-4d55-9c9d-3763f31c6b9f)
 
 ## How it compares
 
-Market-data connectors inform your AI. Execution connectors let it
-trade. Journal connectors show it your past. Tally is the one built to
-constrain — it runs alongside all of them:
-[tally.markets/compare](https://tally.markets/compare)
+Broker notifications confirm each fill. The agent's own reports grade
+the agent. Portfolio trackers show the balance. Tally is the one built
+to judge the account against its own normal, independently of all
+three: [tally.markets/compare](https://tally.markets/compare)
 
 ## Privacy & security
 
-- OAuth per user; your AI sees your journal only, under a grant you can
-  revoke any time.
-- Brokerage data (via SnapTrade) is read-only; broker credentials never
-  touch Tally.
+- OAuth per user; your AI sees your own record only, under a grant you
+  can revoke any time.
+- What the agent reports is stored as a symbol, a kind, and a time, for
+  90 days. No text field exists.
+- Brokerage data (via SnapTrade) is read-only and is read by Tally's own
+  service, never through this connector; broker credentials never touch
+  Tally.
 - Details: [privacy](https://tally.markets/privacy) ·
   [terms](https://tally.markets/terms) · support@tally.markets
 
