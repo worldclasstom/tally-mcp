@@ -28,9 +28,11 @@ the Tally connector is not mounted, tell the user to add it
   notifies the owner, which is the point.
 - When a research pass finishes, report the symbols you read about with
   `log_agent_activity` (kind `research`). When you weigh an order,
-  report it as `consider`; right before you place one, as `propose`.
-  Symbols and kinds only — the tool accepts no text, and Tally stores
-  none.
+  report it as `consider`; right before you place one, as `propose`,
+  with the `setup` tag (momentum, mean_reversion, breakout, earnings,
+  news, rebalance, hedge, other) so the round trip lands on the user's
+  record already tagged. Symbols, kinds and tags only — the tool
+  accepts no text, and Tally stores none.
 - Tally judges the account by its actual orders. Your reports do not
   excuse an order; they make an order you never reported stand out on
   the user's status screen. Report honestly and completely, or not at
@@ -46,9 +48,11 @@ the Tally connector is not mounted, tell the user to add it
   thesis, gather fresh readings for its criteria and log them with
   `record_reading`.
 - The user floats a trade idea with conviction → offer to pre-register it
-  as a thesis (`create_thesis`). No thesis, no trade — ever.
-- The user mentions entering a position → check the thesis exists, is
-  armed, and its cooling-off has passed.
+  as a thesis (`create_thesis`): the record of the idea before the money
+  moves. Armed at once unless they want the optional 24-hour
+  cooling-off (`cooling_off: true`).
+- The user mentions entering a position → check the thesis exists and
+  is armed (and, if they chose a cooling-off, that it has passed).
 - The user wants to exit, "take profits," or "cut it" → check the written
   criteria first (`get_thesis`). If no criterion has fired, this is a
   discretionary exit: require their written justification before

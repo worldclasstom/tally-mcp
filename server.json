@@ -3,7 +3,7 @@
   "name": "markets.tally/mcp",
   "description": "Anomaly detection for AI trading agents: read-only, flags the hour the agent breaks its baseline.",
   "status": "active",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {

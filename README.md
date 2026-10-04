@@ -28,9 +28,13 @@ or any MCP-capable client takes part in that. Four things it does:
   stored. Tally judges the account by its actual orders; the reports
   sharpen an alert (an order in a symbol the agent never mentioned) and
   never replace one.
-- **The thesis journal**, for trades the user makes themselves: a
-  pre-registered thesis per trade, exit rules that freeze before capital
-  moves, a 24-hour cooling-off, an override ledger for rule-breaking
+- **The record**, built from the broker's orders without anyone typing:
+  every completed round trip with its realised P&L, and the numbers
+  (win rate, expectancy, profit factor, by symbol, setup, weekday). The
+  agent's `setup` tag on a proposal lands on the trip.
+- **Pre-registered theses**, optional, for trades the user makes
+  themselves: a statement, exit rules that freeze at creation, an
+  optional 24-hour cooling-off, an override ledger for rule-breaking
   exits, and a public receipt for every closed trade.
 
 **Tally never executes trades.** Every broker and venue connection is
@@ -68,11 +72,11 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 |---|---|
 | `get_started` | Returns the protocol — the AI teaches itself |
 | `declare_mandate` | Declare what the agent is supposed to do — asset classes, largest order, cadence, hours, symbols; a change notifies the owner |
-| `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols and kinds only, no text |
+| `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols, kinds, and a setup tag; no text |
 | `get_checkup` | Morning briefing: the monitoring status per account and any anomaly alert awaiting an answer, then active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |
-| `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria (starts the 24h cooling-off) |
-| `arm_thesis` | Freeze the criteria after cooling-off — from here they fire, never edit |
+| `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria; armed at once, or `cooling_off: true` for the 24h gate |
+| `arm_thesis` | Arm a thesis whose cooling-off has passed — from here the criteria fire, never edit |
 | `record_reading` | Log evidence against a criterion (the generic sensor primitive) |
 | `fire_criterion` | Mark a rule objectively triggered, with cited evidence — one-way |
 | `close_thesis` | Close a trade; discretionary closes require a written justification, logged forever |
