@@ -21,6 +21,11 @@ the Tally connector is not mounted, tell the user to add it
 
 ## If you are the agent that trades
 
+- Declare your mandate once with `declare_mandate`, with the user's
+  agreement: the asset classes you trade, the largest order as a share
+  of the account, your cadence, your hours, your usual symbols. Tally
+  runs it from the first scan and never loosens it. A later change
+  notifies the owner, which is the point.
 - When a research pass finishes, report the symbols you read about with
   `log_agent_activity` (kind `research`). When you weigh an order,
   report it as `consider`; right before you place one, as `propose`.

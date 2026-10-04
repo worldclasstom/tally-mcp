@@ -13,12 +13,16 @@ first as an order it would never have placed yesterday, and that is
 what Tally flags. Most days it sends nothing.
 
 This connector is how an AI running inside Claude, ChatGPT, Claude Code,
-or any MCP-capable client takes part in that. Three things it does:
+or any MCP-capable client takes part in that. Four things it does:
 
 - **The AI reads the monitoring** (`get_checkup`): the status word per
   account, orders in the last 24 hours, anomaly alerts of the last 7
   days and whether the owner answered them, the broker connection. The
   morning checkup leads with it.
+- **The agent declares its mandate** (`declare_mandate`): what it
+  trades, the largest order as a share of the account, cadence, hours,
+  usual symbols, as structure. Tally runs it from the first scan and
+  never loosens it; a later change notifies the owner.
 - **The agent reports what it researched, considered, and proposed**
   (`log_agent_activity`): symbols and kinds only, no text accepted or
   stored. Tally judges the account by its actual orders; the reports
@@ -63,6 +67,7 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 | Tool | What it does |
 |---|---|
 | `get_started` | Returns the protocol — the AI teaches itself |
+| `declare_mandate` | Declare what the agent is supposed to do — asset classes, largest order, cadence, hours, symbols; a change notifies the owner |
 | `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols and kinds only, no text |
 | `get_checkup` | Morning briefing: the monitoring status per account and any anomaly alert awaiting an answer, then active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |

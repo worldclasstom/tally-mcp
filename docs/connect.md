@@ -69,9 +69,10 @@ accounts.tally.markets. Scopes requested: `openid`, `profile`, `email`,
 and nothing else.
 
 **What it can reach.** Every tool is scoped to the authenticated user's
-own record: their monitoring status (one word per account, alert counts and
-summaries, never an order or an amount), their journal, and, if their AI
-reports it, the symbols it researched or considered. The server reaches
+own record: their monitoring status (one word per account, alert counts
+and summaries, the declared mandate, never an order or an amount), their
+journal, and, if their AI reports it, the symbols it researched or
+considered. The server reaches
 no third-party service on
 the user's behalf, browses nothing, cannot read another account's data,
 and cannot reach the user's brokerage. It never queries the AI client's
@@ -82,9 +83,11 @@ places, modifies, or cancels an order on any venue, and none moves money
 or crypto. A linked brokerage goes through SnapTrade on a read-only
 connection; broker credentials never reach Tally.
 
-**Tools.** Eleven, split five read and six write. Reads carry
+**Tools.** Twelve, split five read and seven write. Reads carry
 `readOnlyHint` and run without per-call confirmation; the checkup
-returns the monitoring status and the journal; the three one-way
+returns the monitoring status and the journal; the mandate declaration
+writes structure only and notifies the owner of any change; the three
+one-way
 operations — arming a thesis, firing a criterion, closing a thesis — are
 marked destructive so the client always asks first. The agent-activity
 report accepts symbols and kinds and no text.
