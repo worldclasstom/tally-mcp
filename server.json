@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "The risk officer for AI trading: an independent, read-only watcher for your trading agent.",
+  "description": "Anomaly detection for AI trading agents: read-only, flags the hour the agent breaks its baseline.",
   "status": "active",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {
