@@ -8,7 +8,7 @@ description: Anomaly detection for AI trading agents, via the Tally connector. U
 The user runs Tally (tally.markets), mounted as the "Tally" MCP
 connector: anomaly detection for the agent that trades their brokerage
 account (an independent, read-only baseline of how the agent trades,
-checked every hour), plus a thesis journal. You are the analyst; Tally
+scanned every hour), plus a thesis journal. You are the analyst; Tally
 holds the hard state neither of you can fudge: the account's own
 baseline, the alerts and the user's answers to them, the record of what
 you reported, pre-registered theses, immutable exit criteria,
@@ -34,7 +34,7 @@ the Tally connector is not mounted, tell the user to add it
 ## When to reach for Tally without being asked
 
 - The user asks how their agent or account is doing, or a scheduled
-  task fires → `get_checkup`. Lead with the watch status in one line,
+  task fires → `get_checkup`. Lead with the monitoring status in one line,
   then any anomaly alert awaiting an answer: read it back (what was
   observed, what is normal, the ratio) and ask whether it was expected;
   the answer is given on the status screen. Then, for each active

@@ -6,7 +6,7 @@
 Tally ([tally.markets](https://tally.markets)) is anomaly detection for
 the AI agent that trades a brokerage account. It reads the account
 read-only through SnapTrade, builds the agent's own baseline (symbols,
-size, frequency, hours, cancels), checks the account against it every
+size, frequency, hours, cancels), scans the account against it every
 hour, and emails the owner the hour the agent deviates. Prompt
 injection, a poisoned page, a bad update: a compromised agent shows up
 first as an order it would never have placed yesterday, and that is
@@ -15,7 +15,7 @@ what Tally flags. Most days it sends nothing.
 This connector is how an AI running inside Claude, ChatGPT, Claude Code,
 or any MCP-capable client takes part in that. Three things it does:
 
-- **The AI reads the watch** (`get_checkup`): the status word per
+- **The AI reads the monitoring** (`get_checkup`): the status word per
   account, orders in the last 24 hours, anomaly alerts of the last 7
   days and whether the owner answered them, the broker connection. The
   morning checkup leads with it.
@@ -64,7 +64,7 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 |---|---|
 | `get_started` | Returns the protocol — the AI teaches itself |
 | `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols and kinds only, no text |
-| `get_checkup` | Morning briefing: the watch status per account and any anomaly alert awaiting an answer, then active theses, deadlines, evidence, closed history and lifetime R |
+| `get_checkup` | Morning briefing: the monitoring status per account and any anomaly alert awaiting an answer, then active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |
 | `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria (starts the 24h cooling-off) |
 | `arm_thesis` | Freeze the criteria after cooling-off — from here they fire, never edit |
@@ -83,7 +83,7 @@ to run:
 
 | Prompt | What it does |
 |---|---|
-| `morning-checkup` | The daily run — the watch status and any anomaly alert awaiting an answer first, then fresh readings against every active thesis's criteria and anything that fired. This is the one to put on a schedule. |
+| `morning-checkup` | The daily run — the monitoring status and any anomaly alert awaiting an answer first, then fresh readings against every active thesis's criteria and anything that fired. This is the one to put on a schedule. |
 | `pre-register-trade` | Turns an idea into a pre-registered thesis, interviewing you until it is falsifiable |
 | `close-out` | Walks a thesis to its exit — what the written rules demand, and the justification the override ledger requires if you are closing early |
 

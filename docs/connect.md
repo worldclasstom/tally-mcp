@@ -30,7 +30,7 @@ the record changes.
 
 > Get started with Tally, then run my checkup.
 
-The server returns the full protocol; your AI gives you the watch
+The server returns the full protocol; your AI gives you the monitoring
 status, any anomaly alert awaiting your answer, and briefs you on your
 journal.
 
@@ -46,12 +46,12 @@ it checks your written rules first.
 
 Daily scheduled task with exactly this prompt:
 
-> Run my Tally checkup: give me the watch status for each account and
-> any anomaly alert awaiting my answer first; then, for each active
+> Run my Tally checkup: give me the monitoring status for each account
+> and any anomaly alert awaiting my answer first; then, for each active
 > thesis, gather fresh readings for its criteria, log them with
 > record_reading, and flag any criterion that has objectively fired.
 
-The detection itself runs on Tally's server every hour whether or not
+The monitoring itself runs on Tally's server every hour whether or not
 this schedule exists; the schedule is how you hear the morning read.
 
 ## For security review
@@ -69,7 +69,7 @@ accounts.tally.markets. Scopes requested: `openid`, `profile`, `email`,
 and nothing else.
 
 **What it can reach.** Every tool is scoped to the authenticated user's
-own record: their watch status (one word per account, alert counts and
+own record: their monitoring status (one word per account, alert counts and
 summaries, never an order or an amount), their journal, and, if their AI
 reports it, the symbols it researched or considered. The server reaches
 no third-party service on
@@ -84,7 +84,7 @@ connection; broker credentials never reach Tally.
 
 **Tools.** Eleven, split five read and six write. Reads carry
 `readOnlyHint` and run without per-call confirmation; the checkup
-returns the watch status and the journal; the three one-way
+returns the monitoring status and the journal; the three one-way
 operations — arming a thesis, firing a criterion, closing a thesis — are
 marked destructive so the client always asks first. The agent-activity
 report accepts symbols and kinds and no text.
