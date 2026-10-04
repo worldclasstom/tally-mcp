@@ -85,13 +85,13 @@ report accepts symbols and kinds and no text.
 positions, notes. What their AI reports: a symbol, a kind, a time, kept
 90 days. Any venue session key is encrypted at rest (AES-256-GCM) before
 it touches the database. Receipts are public only for theses the owner
-has closed. Export or deletion on request at support@tally.markets;
-detail in https://tally.markets/privacy.
+has closed. Export or deletion on request through
+https://tally.markets/support; detail in https://tally.markets/privacy.
 
 **Revoking access.** The grant is per user and can be revoked at any time
 from the AI client's connector settings, which invalidates the token
 immediately. Revoking does not delete the journal.
 
 **Operator.** Tally is operated by [Prosperity Labs, LLC](https://prosperitylabs.co/).
-support@tally.markets · https://tally.markets/terms ·
+https://tally.markets/support · https://tally.markets/terms ·
 https://tally.markets/privacy

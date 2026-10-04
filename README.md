@@ -104,7 +104,7 @@ three: [tally.markets/compare](https://tally.markets/compare)
   service, never through this connector; broker credentials never touch
   Tally.
 - Details: [privacy](https://tally.markets/privacy) ·
-  [terms](https://tally.markets/terms) · support@tally.markets
+  [terms](https://tally.markets/terms) · [support](https://tally.markets/support)
 
 ---
 
