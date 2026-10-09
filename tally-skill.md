@@ -6,7 +6,7 @@ description: The user's AI agent for prop firm challenges, via the Tally connect
 # Tally — an AI agent for prop firm challenges
 
 The user runs Tally (tally.markets), mounted as the "Tally" MCP
-connector. Tally runs a trading agent on the user's Propr free trial on
+connector. Tally runs a trading agent on the user's Propr challenge on
 fixed rules, with a scan a day after the close and a tick every hour, a
 protective stop on every position resting at Propr, and a halt before
 Propr's limits. Beside it sits a thesis journal for trades the user
