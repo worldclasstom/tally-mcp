@@ -16,11 +16,12 @@ a payout. Propr accounts are simulated.
 This connector is how an AI running inside Claude, ChatGPT, Claude Code,
 or any MCP-capable client reads that, and runs the journal beside it:
 
-- **The AI reads the agent** (`get_checkup`): the word (Running, Paused
+- **The AI reads the agent** (`get_checkup`): its status (Running, Paused
   for the day, Stopping, Stopped, Halted, Needs attention), equity, the
   distance to the daily limit and to the drawdown limit, open positions
-  with their stops, the last tick, and the sentence that says what
-  halted or what needs you. The morning checkup leads with it.
+  with their stops, the last tick, the sentence that says what halted or
+  what needs you, and the record so far (closed positions with why each
+  opened and closed, win rate, net P&L). The morning checkup leads with it.
 - **The AI cannot touch the agent.** No tool places an order, changes a
   rule, or stops the agent. Stop and Start again live on the status
   screen, and only you press them.
@@ -66,7 +67,7 @@ steps): [tally.markets/connect](https://tally.markets/connect)
 | Tool | What it does |
 |---|---|
 | `get_started` | Returns the protocol — the AI teaches itself |
-| `get_checkup` | Morning briefing: the agent's status first (the word, equity, the distances, positions with stops, anything halted), then active theses, deadlines, evidence, closed history and lifetime R |
+| `get_checkup` | Morning briefing: the agent's status first (running or not, equity, the distances, positions with stops, anything halted), then active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |
 | `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria; armed at once, or `cooling_off: true` for the 24h gate |
 | `arm_thesis` | Arm a thesis whose cooling-off has passed — from here the criteria fire, never edit |

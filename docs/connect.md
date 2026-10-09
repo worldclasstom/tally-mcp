@@ -36,8 +36,8 @@ the journal changes.
 > Get started with Tally, then run my checkup.
 
 The server returns the full protocol; your AI gives you the agent's
-status, the word, equity, the distance to each limit, open positions and
-anything that halted, and briefs you on your journal.
+status, running or not, equity, the distance to each limit, open
+positions and anything that halted, and briefs you on your journal.
 
 ## 4 · Install the skill (optional, recommended)
 
@@ -51,8 +51,8 @@ it checks your written rules first.
 
 Daily scheduled task with exactly this prompt:
 
-> Run my Tally checkup: give me the agent's status first (the word,
-> equity, the distance to each limit, open positions, and anything
+> Run my Tally checkup: give me the agent's status first (running or
+> not, equity, the distance to each limit, open positions, and anything
 > halted or needing me); then, for each active thesis, gather fresh
 > readings for its criteria, log them with record_reading, and flag any
 > criterion that has objectively fired.
@@ -75,9 +75,9 @@ accounts.tally.markets. Scopes requested: `openid`, `profile`, `email`,
 and nothing else.
 
 **What it can reach.** Every tool is scoped to the authenticated user's
-own record: the agent's status (the word, equity and the distance to
+own record: the agent's status (running or halted, equity and the distance to
 each limit, open positions by market and side, the last tick, anything
-halted) and their journal. The server reaches no third-party service on
+halted), the record of its closed positions, and their journal. The server reaches no third-party service on
 the user's behalf, browses nothing, cannot read another account's data,
 and never holds or returns the user's Propr API key. It never queries
 the AI client's memory, chat history, or files.

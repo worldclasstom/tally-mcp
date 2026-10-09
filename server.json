@@ -3,7 +3,7 @@
   "name": "markets.tally/mcp",
   "description": "An AI agent for prop firm challenges, on a Propr free trial; the connector reads it, never trades.",
   "status": "active",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {

@@ -22,12 +22,13 @@ the Tally connector is not mounted, tell the user to add it
 
 ## What you can and cannot do about the agent
 
-- You can read it. `get_checkup` leads with the agent: the word
+- You can read it. `get_checkup` leads with the agent: its status
   (Running, Paused for the day, Stopping, Stopped, Halted, Needs
   attention), equity, the distance to the daily limit and to the
   drawdown limit, open positions by market and side with their stops,
-  the last tick, and the sentence that says what halted or what needs
-  the user.
+  the last tick, the sentence that says what halted or what needs the
+  user, and the record so far (closed positions, each with the rule that
+  opened it and what closed it, win rate, net P&L).
 - You cannot place an order, change a rule, or stop the agent. Stop and
   Start again live on the status screen (tally.markets/dashboard), and
   only the user presses them. When the user wants the agent stopped,
@@ -40,7 +41,7 @@ the Tally connector is not mounted, tell the user to add it
 
 - The user asks how their agent or account is doing, or a scheduled
   task fires → `get_checkup`. Lead with the agent in one or two lines:
-  the word, equity, the distance to each limit, open positions. If
+  its status, equity, the distance to each limit, open positions. If
   something halted or needs the user, read the sentence back and point
   at the status screen. Then, for each active thesis, gather fresh
   readings for its criteria and log them with `record_reading`.
