@@ -4,7 +4,7 @@
 > runs it for you.**
 
 Tally ([tally.markets](https://tally.markets)) runs a trading agent on
-your Propr free trial. You start the trial at Propr, paste one API key
+your Propr challenge, free trial or paid. You start at Propr, paste one API key
 into Tally, choose the markets, and authorize the agent by name. It then
 trades the challenge on fixed rules, with one scan a day after the daily
 close and a tick every hour, a reduce-only protective stop on every

@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "An AI agent for prop firm challenges, on a Propr free trial; the connector reads it, never trades.",
+  "description": "An AI agent for prop firm challenges on Propr; the connector reads it, never trades.",
   "status": "active",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {
