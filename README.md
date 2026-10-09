@@ -1,46 +1,41 @@
-# Tally — anomaly detection for AI trading agents
+# Tally — an AI agent for prop firm challenges
 
-> Every trading connector makes your AI more capable. **Tally makes it
-> accountable.**
+> Building an AI agent to pass prop firm challenges, hosted. **Tally
+> runs it for you.**
 
-Tally ([tally.markets](https://tally.markets)) is anomaly detection for
-the AI agent that trades a brokerage account. It reads the account
-read-only through SnapTrade, builds the agent's own baseline (symbols,
-size, frequency, hours, cancels), scans the account against it every
-hour, and emails the owner the hour the agent deviates. Prompt
-injection, a poisoned page, a bad update: a compromised agent shows up
-first as an order it would never have placed yesterday, and that is
-what Tally flags. Most days it sends nothing.
+Tally ([tally.markets](https://tally.markets)) runs a trading agent on
+your Propr free trial. You start the trial at Propr, paste one API key
+into Tally, choose the markets, and authorize the agent by name. It then
+trades the challenge on fixed rules, with one scan a day after the daily
+close and a tick every hour, a reduce-only protective stop on every
+position resting at Propr, and a halt before Propr's limits. You see
+every order on the status screen and in the daily report, and you stop
+it with one click. Tally never buys a challenge, moves funds or requests
+a payout. Propr accounts are simulated.
 
 This connector is how an AI running inside Claude, ChatGPT, Claude Code,
-or any MCP-capable client takes part in that. Four things it does:
+or any MCP-capable client reads that, and runs the journal beside it:
 
-- **The AI reads the monitoring** (`get_checkup`): the status word per
-  account, orders in the last 24 hours, anomaly alerts of the last 7
-  days and whether the owner answered them, the broker connection. The
-  morning checkup leads with it.
-- **The agent declares its mandate** (`declare_mandate`): what it
-  trades, the largest order as a share of the account, cadence, hours,
-  usual symbols, as structure. Tally runs it from the first scan and
-  never loosens it; a later change notifies the owner.
-- **The agent reports what it researched, considered, and proposed**
-  (`log_agent_activity`): symbols and kinds only, no text accepted or
-  stored. Tally judges the account by its actual orders; the reports
-  sharpen an alert (an order in a symbol the agent never mentioned) and
-  never replace one.
-- **The record**, built from the broker's orders without anyone typing:
-  every completed round trip with its realised P&L, and the numbers
-  (win rate, expectancy, profit factor, by symbol, setup, weekday). The
-  agent's `setup` tag on a proposal lands on the trip.
-- **Pre-registered theses**, optional, for trades the user makes
-  themselves: a statement, exit rules that freeze at creation, an
-  optional 24-hour cooling-off, an override ledger for rule-breaking
-  exits, and a public receipt for every closed trade.
+- **The AI reads the agent** (`get_checkup`): the word (Running, Paused
+  for the day, Stopping, Stopped, Halted, Needs attention), equity, the
+  distance to the daily limit and to the drawdown limit, open positions
+  with their stops, the last tick, and the sentence that says what
+  halted or what needs you. The morning checkup leads with it.
+- **The AI cannot touch the agent.** No tool places an order, changes a
+  rule, or stops the agent. Stop and Start again live on the status
+  screen, and only you press them.
+- **Pre-registered theses**, optional, for trades you make yourself: a
+  statement, exit rules that freeze at creation, an optional 24-hour
+  cooling-off, an override ledger for rule-breaking exits, and a public
+  receipt for every closed trade.
+- **The agent's own records** for an AI that trades elsewhere, optional:
+  `declare_mandate` and `log_agent_activity` keep structure only, never
+  text, for the journal's sake.
 
-**Tally never executes trades.** Every broker and venue connection is
-read-only at the API level — no order placement, no custody, by
-architecture and by policy. Nothing in this connector can reach a
-brokerage.
+**Nothing in this connector can trade.** Orders on your Propr account
+are placed only by Tally's own agent service, on the one account you
+authorized by name, and never through this connector or at an AI's
+request.
 
 ## Connect
 
@@ -63,17 +58,15 @@ teaches your AI the whole protocol on first contact. The connector
 needs a subscribed Tally account (Sentinel, $4.99 a month or $49 a
 year); every tool but `get_started` answers only for one.
 
-Full walkthrough (skill, scheduled morning checkup, broker linking):
-[tally.markets/connect](https://tally.markets/connect)
+Full walkthrough (skill, scheduled morning checkup, the four setup
+steps): [tally.markets/connect](https://tally.markets/connect)
 
 ## Tools
 
 | Tool | What it does |
 |---|---|
 | `get_started` | Returns the protocol — the AI teaches itself |
-| `declare_mandate` | Declare what the agent is supposed to do — asset classes, largest order, cadence, hours, symbols; a change notifies the owner |
-| `log_agent_activity` | Report what the agent researched, considered, or proposed — symbols, kinds, and a setup tag; no text |
-| `get_checkup` | Morning briefing: the monitoring status per account and any anomaly alert awaiting an answer, then active theses, deadlines, evidence, closed history and lifetime R |
+| `get_checkup` | Morning briefing: the agent's status first (the word, equity, the distances, positions with stops, anything halted), then active theses, deadlines, evidence, closed history and lifetime R |
 | `list_theses` / `get_thesis` | Read the journal |
 | `create_thesis` | Pre-register a trade: statement, mechanism, risk budget, exit criteria; armed at once, or `cooling_off: true` for the 24h gate |
 | `arm_thesis` | Arm a thesis whose cooling-off has passed — from here the criteria fire, never edit |
@@ -81,6 +74,8 @@ Full walkthrough (skill, scheduled morning checkup, broker linking):
 | `fire_criterion` | Mark a rule objectively triggered, with cited evidence — one-way |
 | `close_thesis` | Close a trade; discretionary closes require a written justification, logged forever |
 | `get_receipt_link` | The public receipt for a closed thesis |
+| `declare_mandate` | Optional record for an AI that trades elsewhere: what it is supposed to do, as structure |
+| `log_agent_activity` | Optional record for an AI that trades elsewhere: symbols, kinds and a setup tag; no text |
 
 Reads are safe to always-allow; writes are guarded by the protocol
 itself (cooling-off, criteria minimums, override justifications).
@@ -92,33 +87,34 @@ to run:
 
 | Prompt | What it does |
 |---|---|
-| `morning-checkup` | The daily run — the monitoring status and any anomaly alert awaiting an answer first, then fresh readings against every active thesis's criteria and anything that fired. This is the one to put on a schedule. |
+| `morning-checkup` | The daily run — the agent's status first, then fresh readings against every active thesis's criteria and anything that fired. This is the one to put on a schedule. |
 | `pre-register-trade` | Turns an idea into a pre-registered thesis, interviewing you until it is falsifiable |
 | `close-out` | Walks a thesis to its exit — what the written rules demand, and the justification the override ledger requires if you are closing early |
 
-## Proof
+## What the agent does
 
-A real receipt — pre-registered thesis, venue-verified entry and exit,
-−0.22R, graded Process B / Outcome D, closing note verbatim:
-[*"Wrong on thesis, right on
-process."*](https://tally.markets/receipt/b3bb0a14-3467-4d55-9c9d-3763f31c6b9f)
+One scan a day after the daily close. A close above the prior 20 days'
+highs opens a long; below the prior 20 days' lows opens a short; a close
+back through the prior 10 days' range closes it. Each position risks
+0.4% of the starting balance with a stop two ATR from the fill resting
+at Propr; at most three positions, gross exposure never above twice the
+equity. The agent stops opening positions for the day at a 2% loss of
+equity (inside Propr's 3%) and closes everything and stops for good at
+4.5% below the starting balance (inside Propr's 6%). Passing is the aim,
+not a result anyone can promise.
 
 ## How it compares
 
-Broker notifications confirm each fill. The agent's own reports grade
-the agent. Portfolio trackers show the balance. Tally is the one built
-to check the account against the agent's own baseline, independently of
-all three: [tally.markets/compare](https://tally.markets/compare)
+Trading the challenge by hand, following a signal group, running an
+agent on your own computer, or Tally:
+[tally.markets/compare](https://tally.markets/compare)
 
 ## Privacy & security
 
 - OAuth per user; your AI sees your own record only, under a grant you
   can revoke any time.
-- What the agent reports is stored as a symbol, a kind, and a time, for
-  90 days. No text field exists.
-- Brokerage data (via SnapTrade) is read-only and is read by Tally's own
-  service, never through this connector; broker credentials never touch
-  Tally.
+- Your Propr API key is encrypted at rest and decrypted only by Tally's
+  agent service; it never passes through this connector.
 - Details: [privacy](https://tally.markets/privacy) ·
   [terms](https://tally.markets/terms) · [support](https://tally.markets/support)
 

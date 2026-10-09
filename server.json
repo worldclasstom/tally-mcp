@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "Anomaly detection for AI trading agents: read-only, flags the hour the agent breaks its baseline.",
+  "description": "An AI agent for prop firm challenges: your AI reads the agent's status on a Propr free trial; nothing here can trade.",
   "status": "active",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {
