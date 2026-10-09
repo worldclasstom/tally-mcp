@@ -27,8 +27,12 @@ the Tally connector is not mounted, tell the user to add it
   attention), equity, the distance to the daily limit and to the
   drawdown limit, open positions by market and side with their stops,
   the last tick, the sentence that says what halted or what needs the
-  user, and the record so far (closed positions, each with the rule that
-  opened it and what closed it, win rate, net P&L).
+  user, the record so far (closed positions, each with the rule that
+  opened it and what closed it, win rate, net P&L), and the attempt: the
+  rules the user wrote before the first order, which fired and whether
+  the user answered, how close the account came to each of Propr's
+  limits, and how it ended. A fired rule never stops the agent; the user
+  answers it on the status screen, with Stop or with a sentence.
 - You cannot place an order, change a rule, or stop the agent. Stop and
   Start again live on the status screen (tally.markets/dashboard), and
   only the user presses them. When the user wants the agent stopped,
