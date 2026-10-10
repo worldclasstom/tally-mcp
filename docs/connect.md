@@ -3,10 +3,11 @@
 Five steps, about two minutes. Full guided version with copy buttons:
 https://tally.markets/connect
 
-The agent itself is set up on Tally's status screen in four steps:
-subscribe, start a free trial at Propr and create an API key, paste the
-key into Tally and choose the markets, authorize the agent by name. The
-connector is optional and reads the result.
+Set up the agent first: create your Tally account, connect Propr with an
+API key and select your account and markets, choose your subscription,
+then review the strategy and risk limits and explicitly authorize trading
+on that selected account. Connecting Propr comes before checkout; paying
+does not start trading. The AI connector is optional and reads the result.
 
 ## 1 · Add the connector
 
@@ -85,7 +86,7 @@ the AI client's memory, chat history, or files.
 **The connector cannot trade.** No tool places, modifies, or cancels an
 order, and none moves money or crypto. Orders on a user's Propr account
 are placed only by Tally's own agent service, on the one account the
-user authorized by name on the status screen, and never through this
+user selected and explicitly authorized on the dashboard, and never through this
 connector or at an AI's request.
 
 **Tools.** Twelve, split five read and seven write. Reads carry
