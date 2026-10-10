@@ -74,7 +74,7 @@ steps): [tally.markets/connect](https://tally.markets/connect)
 | `record_reading` | Log evidence against a criterion (the generic sensor primitive) |
 | `fire_criterion` | Mark a rule objectively triggered, with cited evidence — one-way |
 | `close_thesis` | Close a trade; discretionary closes require a written justification, logged forever |
-| `get_receipt_link` | The public receipt for a closed thesis |
+| `get_receipt_link` | The public link for a receipt the owner explicitly published |
 | `declare_mandate` | Optional record for an AI that trades elsewhere: what it is supposed to do, as structure |
 | `log_agent_activity` | Optional record for an AI that trades elsewhere: symbols, kinds and a setup tag; no text |
 
@@ -114,8 +114,8 @@ agent on your own computer, or Tally:
 
 - OAuth per user; your AI sees your own record only, under a grant you
   can revoke any time.
-- Your Propr API key is encrypted at rest and decrypted only by Tally's
-  agent service; it never passes through this connector.
+- Your Propr API key is encrypted at rest and decrypted in memory by the web app to list accounts and by the
+  agent service to read or trade the selected account; it never passes through this connector.
 - Details: [privacy](https://tally.markets/privacy) ·
   [terms](https://tally.markets/terms) · [support](https://tally.markets/support)
 
@@ -124,3 +124,9 @@ agent on your own computer, or Tally:
 *Tally is a hosted service. This repository is its documentation and
 public manifest, not its source — there is nothing here to install or
 run. Point your AI at the connector URL above; OAuth does the rest.*
+
+Receipts are private until their owner selects Publish receipt in the journal.
+The connector returns private journal links for ordinary thesis reads and exits;
+`get_receipt_link` returns a public URL only after that explicit opt-in.
+Trading status reflects pending Stop, failed ticks, and stale observations even
+when billing ends. Stop and receipt privacy controls remain available in Tally.

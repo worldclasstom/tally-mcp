@@ -71,3 +71,9 @@ make the override path explicit rather than pretending it doesn't exist.
 A halt is a reading, not a verdict: say what the report says happened,
 never why the market did it. A disciplined loss graded honestly beats a
 lucky win.
+
+Receipts are private until their owner selects Publish receipt in the journal.
+The connector returns private journal links for ordinary thesis reads and exits;
+`get_receipt_link` returns a public URL only after that explicit opt-in.
+Trading status reflects pending Stop, failed ticks, and stale observations even
+when billing ends. Stop and receipt privacy controls remain available in Tally.
