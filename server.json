@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "An AI agent for prop firm challenges on Propr; the connector reads it, never trades.",
+  "description": "AI risk officer: private trading theses, evidence, exit criteria and decision history. No execution.",
   "status": "active",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {
