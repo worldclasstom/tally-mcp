@@ -37,3 +37,7 @@ Records are owner-scoped and private unless the user explicitly publishes a rece
 This repository contains public documentation and registry metadata only. Server implementation and secrets are not published here. Method: 2026-10-18.1. Server manifest: 1.7.0 (publication is a separate release step).
 
 In `get_checkup`, optional `agent` and `monitoring` sections are null when no corresponding account is connected. Journal users do not need a brokerage or Propr connection.
+
+Transport safeguards: requests are limited to 128 KiB before JSON parsing, and
+tool arguments to 5,000 combined object keys/array entries. Split larger evidence
+updates into smaller calls. Each request gets its own MCP server instance.
