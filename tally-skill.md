@@ -24,3 +24,11 @@ Setup: https://tally.markets/connect
 MCP endpoint: https://tally.markets/api/mcp
 
 In `get_checkup`, optional `agent` and `monitoring` sections are null when no corresponding account is connected. Journal users do not need a brokerage or Propr connection.
+
+## Session and process reviews
+
+Use `record_decision_event` to save user-approved summaries of what happened, the next decision, its reason and the relevant rule. A `boundary` states the user’s own line in the sand and intended response. Corrections append and link to the original entry. Never save raw chats, credentials or unrelated details.
+
+Read `get_decision_history` alongside `get_checkup`; follow all pages before claiming to have reviewed a period. Watcher records and user reports are distinct evidence sources. Use the sequence around a deviation to discuss a possible tipping point with the user, not to declare a psychological diagnosis or a statistically established cause. Good process and profitable outcomes are different. A boundary entry does not place restrictions on brokerage execution.
+
+When a user wants to give feedback, show the wording and ask before `submit_product_feedback` sends it to Tally’s team. Keep private history out unless the user explicitly chooses to share it.

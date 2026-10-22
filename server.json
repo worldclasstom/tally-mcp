@@ -3,7 +3,7 @@
   "name": "markets.tally/mcp",
   "description": "AI risk officer: private trading theses, evidence, exit criteria and decision history. No execution.",
   "status": "active",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {
