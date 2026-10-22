@@ -8,7 +8,7 @@ See [the setup guide](https://tally.markets/connect). Endpoint: `https://tally.m
 
 Start with: “Get started with Tally, then run my checkup.”
 
-Free includes 3 active theses (including drafts) and 10 total created. Closing frees an active slot but does not reset the total. Saved records remain readable, reviewable and closable. Sentinel is $4.99/month or $49/year with no creation cap and supported monitoring across the active journal.
+Free includes 3 active theses (including drafts) and 10 total created. Closing frees an active slot but does not reset the total. Saved records remain readable, reviewable and closable. Sentinel is $9/month or $49/year with no creation cap and supported monitoring across the active journal.
 
 Connected is an optional $89/month tier adding read-only broker snapshots after
 payment, provider activation and explicit owner consent. Every plan includes the

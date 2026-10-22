@@ -8,6 +8,6 @@ After connecting, ask “Get started with Tally, then run my checkup.” Draft a
 
 The journal is also available at https://tally.markets/journal. Client plans and workspace permissions determine which connector tools are available; manage unavailable actions in Tally.
 
-Free: 3 active theses, including drafts, and 10 total created. Closing frees an active slot but does not reset the total. Existing history remains readable, reviewable and closable. Sentinel: $4.99/month or $49/year, with no creation cap.
+Free: 3 active theses, including drafts, and 10 total created. Closing frees an active slot but does not reset the total. Existing history remains readable, reviewable and closable. Sentinel: $9/month or $49/year, with no creation cap.
 
 No tool executes trades or changes brokerage positions. Creating, arming and closing a thesis are journal actions. Existing optional Propr accounts are accessible under Settings, separately from the journal. Never confuse a journal close with a position close.
