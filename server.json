@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "markets.tally/mcp",
-  "description": "AI risk officer: private trading theses, evidence, exit criteria and decision history. No execution.",
+  "description": "Save trading ideas, watch supported crypto prices, and review sourced evidence. No trading.",
   "status": "active",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {

@@ -6,7 +6,7 @@ Your AI risk officer for AI-assisted trading. Tally keeps your private thesis, e
 
 See [the setup guide](https://tally.markets/connect). Endpoint: `https://tally.markets/api/mcp`, Streamable HTTP with OAuth. Tool availability depends on the AI app, plan and workspace permissions.
 
-Start with: “Get started with Tally, then run my checkup.”
+Start with: “Help me turn this trading conversation into a saved idea, then choose one useful condition to watch.”
 
 Free includes 3 active theses (including drafts) and 10 total created. Closing frees an active slot but does not reset the total. Saved records remain readable, reviewable and closable. Sentinel is $9/month or $49/year with no creation cap and supported monitoring across the active journal.
 
@@ -25,6 +25,10 @@ freshness. Transaction history can be delayed; this is not a live trading feed.
 | `get_started` | Current discipline protocol and tool boundaries |
 | `get_checkup` | Active theses, evidence, deadlines, issues and history; optional read-only Connected broker snapshots or Propr state |
 | `list_theses`, `get_thesis` | Private journal records |
+| `save_thesis_draft` | Save or revise a private conversational draft; no monitoring or trading |
+| `activate_idea_watch` | Activate a confirmed, one-time hourly Coinbase USD price watch for BTC, ETH, SOL or XRP |
+| `list_idea_watches` | Review your conditions, timestamps, errors and triggered state |
+| `stop_idea_watch` | Stop a watch while preserving its evidence |
 | `create_thesis` | Save a thesis and criteria; enforce the shared free allowance |
 | `arm_thesis` | Change journal readiness after optional cooling-off; no trade authorization |
 | `record_reading` | Add sourced evidence to the record |
@@ -44,7 +48,7 @@ No connector tool places, cancels, closes or modifies orders, changes protective
 
 Records are owner-scoped and private unless the user explicitly publishes a receipt. Read [privacy](https://tally.markets/privacy) and [terms](https://tally.markets/terms).
 
-This repository contains public documentation and registry metadata only. Server implementation and secrets are not published here. Method: 2026-10-21.1. Server manifest: 1.8.0 (publication is a separate release step).
+This repository contains public documentation and registry metadata only. Server implementation and secrets are not published here. Method: 2026-11-13.1. Server manifest: 1.10.0 (publication is a separate release step).
 
 In `get_checkup`, `brokerage` is null without an eligible Connected subscription;
 it can describe activation pending before a broker is connected. The retired
@@ -64,3 +68,11 @@ Use `get_decision_history` alongside checkup data for process reviews. Records a
 Tally does not receive the full Claude or ChatGPT transcript. Save only relevant summaries the user approved. Do not infer mental health, label a trading style from a small sample, or mistake a reported decision for a verified fill. Compare process with the rule that existed at the time, separately from P&L. Review possible tipping points with the user; a boundary entry does not control execution.
 
 Product feedback is separate: show the exact feedback wording, get the user’s agreement to send it to Tally’s team, then call `submit_product_feedback`. Never include private journal content by default. Signed-in users can also use Feedback in their app footer.
+
+## Ideas and supported watches
+
+Save an incomplete idea with `save_thesis_draft` after confirming its summary. Reuse its ID for revisions. A full thesis is optional for a supported watch. `activate_idea_watch` requires an explicit USD threshold, why it matters, an expiry within 30 days, a retry-stable request UUID and user confirmation. Up to ten active watches per owner are supported in this release.
+
+Checks run hourly against Coinbase Exchange last-trade observations. They can miss moves between checks and are not stop orders, continuous monitoring or daily-close rules. Conditions include equality; the first fresh check can already meet the condition. Each watch triggers once. Missing or stale data never counts as an unchanged market. Inspect `list_idea_watches` or https://tally.markets/ideas for source timestamps and errors. Emails follow existing notification preferences. Free-text macroeconomic criteria are not automatically monitored by this feature.
+
+No private conversations are copied automatically. No watch authorizes trading.

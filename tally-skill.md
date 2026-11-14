@@ -6,6 +6,7 @@ Call `get_started` for the current protocol, then `get_checkup`. Follow the serv
 
 ## Journal workflow
 
+- For an incomplete idea, show a compact summary and ask agreement before `save_thesis_draft`. Only title and idea are required. Keep unknowns explicit; revise using the returned ID. Drafts use the existing allowance. Offer `activate_idea_watch` for a confirmed supported hourly crypto USD condition, including its reason and expiry; review with `list_idea_watches`, stop with `stop_idea_watch`. Saving alone never activates a watch. Full thesis completion in the web journal is optional for price watches.
 - Draft the statement, mechanism, risk budget, catalyst window and measurable criteria with the user before `create_thesis`.
 - `arm_thesis` marks a journal thesis ready after its optional cooling-off period. It does not authorize trading.
 - `record_reading` saves sourced evidence; `fire_criterion` records an objectively triggered rule.
