@@ -24,6 +24,9 @@ end date, notification timing and any important gap, then one go-ahead. Do not
 recite every stored field or internal threshold. Never omit a material coverage
 gap to make the reply shorter.
 
+Use the host conversation and native reply choices for ordinary checks, examples
+and confirmations. Open a Tally card only when the user asks for a visual or
+interactive view; a card is not required to use Tally.
 When Tally renders an interactive card, let that card carry its answer and
 buttons. Do not recreate the same controls, table or summary above or below it.
 Add at most a brief contextual sentence. In text-only clients, give the complete

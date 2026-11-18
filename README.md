@@ -24,7 +24,8 @@ freshness. Transaction history can be delayed; this is not a live trading feed.
 | `check_trade` | Check fees, whole-unit size, additions, giveback and known expiry/event conflicts against an explicit loss limit; no orders or journal prerequisite |
 | `get_execution_evidence` | Read archived orders, fills and decisions for an optional Propr account; no live protection claim |
 | `get_started` | Current method, first-use guidance and tool boundaries |
-| `try_tally` | Fictional first-use example: compare two and three contracts; no brokerage reads or trading records |
+| `try_tally` | Conversational fictional example: compare two and three contracts; no brokerage reads or trading records |
+| `view_trade_check` | Optional branded visual card, only when the user requests an interactive or visual view |
 | `get_checkup` | Active theses, evidence, deadlines, issues and history; optional read-only Connected broker snapshots or Propr state |
 | `list_theses`, `get_thesis` | Private journal records |
 | `save_thesis_draft` | Save or revise a private conversational draft; no monitoring or trading |
@@ -50,7 +51,7 @@ No connector tool places, cancels, closes or modifies orders, changes protective
 
 Records are owner-scoped and private unless the user explicitly publishes a receipt. Read [privacy](https://tally.markets/privacy) and [terms](https://tally.markets/terms).
 
-This repository contains public documentation and registry metadata only. Server 1.11.0 uses method 2026-11-18.2. Hosted tool availability can lag behind deployment while an AI app scans and approves updates; a registry version does not establish marketplace approval.
+This repository contains public documentation and registry metadata only. Server 1.12.0 uses method 2026-11-18.4. Hosted tool availability can lag behind deployment while an AI app scans and approves updates; a registry version does not establish marketplace approval.
 
 `check_trade` accepts supported fully paid USD long calls, puts and whole shares, excluding same-day expiry. Use known conversation facts and authorized sources, never invented limits or market observations. Data can come from Connected via SnapTrade, a broker connector, both or neither. Preserve source identity and timestamp; do not sum duplicate positions or combine cash and holdings from different accounts. The server does not independently authenticate data relayed by the host from another connector. Connected snapshots are context, not verified current funding. Supporting MCP Apps hosts can render the optional result view; complete text output works without it. Validate actual host rendering before release.
 

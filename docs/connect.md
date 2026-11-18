@@ -10,7 +10,7 @@ For returning users with saved work: “Review my saved Tally ideas. What change
 
 Your plans and their evidence are together at https://tally.markets/workspace. Discuss a trade in your AI app; Tally can save the plan and attach a supported watch after one confirmation. The thesis is why the trade should work, inside the larger game plan. You do not need to complete a thesis questionnaire.
 
-If Claude still shows the older tools, open Customize → Connectors → Tally → More options → Refresh tools list. If ChatGPT has multiple Tally accounts connected, name the account you want to use; paid access belongs to that Tally account, not to the ChatGPT subscription. Client permissions may add a tool-approval prompt. Interactive reply controls vary by host, and the conversation also works as text.
+If Claude still shows the older tools, open Customize → Connectors → Tally → More options → Refresh tools list. If ChatGPT has multiple Tally accounts connected, name the account you want to use; paid access belongs to that Tally account, not to the ChatGPT subscription. Client permissions may add a tool-approval prompt. Ordinary checks and examples stay in the host conversation, with native reply choices when available. Ask for a visual or interactive view to open a branded Tally card. Typed replies always work; host controls and permission prompts vary.
 
 Free: 3 active trade plans, including drafts, and 10 total created. Closing frees an active slot but does not reset the total. Existing history remains readable, reviewable and closable. Sentinel has no creation cap and supports up to 3 active evidence watches; Connected supports up to 10. Background watching requires active paid-tier access. See the current pricing on the website.
 
