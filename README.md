@@ -51,7 +51,7 @@ No connector tool places, cancels, closes or modifies orders, changes protective
 
 Records are owner-scoped and private unless the user explicitly publishes a receipt. Read [privacy](https://tally.markets/privacy) and [terms](https://tally.markets/terms).
 
-This repository contains public documentation and registry metadata only. Server 1.12.0 uses method 2026-11-18.4. Hosted tool availability can lag behind deployment while an AI app scans and approves updates; a registry version does not establish marketplace approval.
+This repository contains public documentation and registry metadata only. Server 1.12.1 uses method 2026-11-18.5. Hosted tool availability can lag behind deployment while an AI app scans and approves updates; a registry version does not establish marketplace approval.
 
 `check_trade` accepts supported fully paid USD long calls, puts and whole shares, excluding same-day expiry. Use known conversation facts and authorized sources, never invented limits or market observations. Data can come from Connected via SnapTrade, a broker connector, both or neither. Preserve source identity and timestamp; do not sum duplicate positions or combine cash and holdings from different accounts. The server does not independently authenticate data relayed by the host from another connector. Connected snapshots are context, not verified current funding. Supporting MCP Apps hosts can render the optional result view; complete text output works without it. Validate actual host rendering before release.
 
@@ -86,6 +86,14 @@ No private conversations are copied automatically. No watch authorizes trading.
 ## Conversation-led evidence watches
 
 The main flow is **discuss the trade → examine the case and risk → preview a supported watch → confirm once → review meaningful changes**. A thesis is the why inside a trade plan. No formal thesis questionnaire is required; every watch belongs to a saved trade plan. `get_started` supplies the current conversation guidance.
+
+Before confirmation, the assistant displays the compact plan in an ordinary
+reply, distinguishes user choices from proposals and leaves unknowns explicit.
+It ends that reply with one confirmation question and waits; a blocking host
+question/form tool must not replace the visible draft. If the current plan is
+already visible and unchanged, the watch scope can follow without repeating it.
+Native quick replies remain useful for simple clarifications. Host rendering is
+not controlled by the server; if text is missing, show it before seeking consent.
 
 - `save_trade_plan`, `get_trade_plan`, `close_trade_plan`: map the conversation into a private game plan; preserve revisions and record user-reported exits without trading.
 - `preview_evidence_watch`: read-only scope, paid entitlement, source readiness and confirmation hash.
