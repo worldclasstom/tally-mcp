@@ -3,7 +3,7 @@
   "name": "markets.tally/mcp",
   "description": "Build trade plans in conversation, check risk, and follow supported evidence. No trading.",
   "status": "active",
-  "version": "1.12.1",
+  "version": "1.13.0",
   "websiteUrl": "https://tally.markets",
   "remotes": [
     {

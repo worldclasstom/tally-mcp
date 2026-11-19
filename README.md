@@ -102,3 +102,27 @@ not controlled by the server; if text is missing, show it before seeking consent
 - `stop_evidence_watch`: stop checks and suppress unsent notifications; retain history.
 
 Initial scope: Circle/USDC company evidence, with optional qualified end-of-session CRCL call quotes when separately configured. Sentinel and higher paid tiers only. These tools do not execute trades. A broker MCP session does not grant background access. See the [hosted guidance](https://tally.markets/tally-skill.md) and use the read-only preview to check current deployment readiness. Optional contract-price coverage is separately gated; do not promise it from a broker connector in the chat.
+
+
+### Agreed plan dates
+
+Paid monitoring also supports up to three agreed review or planned-exit reminders
+for any trade plan. Use `companyEvidence: false` for calendar-only coverage,
+`contract: null`, and `reminders: [{at, timeZone, kind, note}]`. Kind is `review`
+or `planned_exit`; `at` is an ISO timestamp with offset and `timeZone` an agreed
+IANA zone. Show the local times before confirmation. A rough review window must
+not become an exit deadline. Keep the watch open at least six hours after the
+last reminder for delivery. These are hourly reminders, not execution timers.
+
+Reminders share the paid watch allowance with evidence coverage. A combined
+watch consumes one slot. Each agreed date produces at most one private event,
+separately from the daily evidence-update limit. Reminders due while paused or
+over six hours late are marked skipped/missed. Email remains subject to settings
+and delivery status. Closing or changing the linked plan stops or pauses its
+coverage. No market-data feed or model inference is needed for calendar-only
+watches. Stock-price targets and unavailable option quotes remain uncovered.
+
+Recommended MCP prompts: `plan-a-trade`, `try-a-sample-trade`, and
+`review-my-decisions`. The three older formal-journal prompt names remain
+available for existing integrations. Marketplace starters use the conversational
+planning, fictional sample, and decision-review examples.
